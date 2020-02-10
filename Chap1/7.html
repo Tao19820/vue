@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <button @click="increase">Click to increase product one cost</button>
+    <button v-on:click="productTwoCost++">Click to increase product two cost</button>
+    <br>
+    <p>Product one cost: {{ productOneCost | formatCost('$') }}</p>
+    <p>Product two cost: {{ productTwoCost | formatCost('$') }}</p>
+    <br>
+    <input type="text" @keydown.enter.exact="pressKey">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            productOneCost: 998,
+            productTwoCost: 2399,
+            counter: 0
+        },
+        methods:{
+          increase(e){
+              this.counter++;
+              this.productOneCost++;
+          },
+            pressKey(e){
+              this.productTwoCost--;
+            }
+        },
+        filters:{
+            formatCost(value, symbol){
+                return symbol + (value / 100).toFixed(2);
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

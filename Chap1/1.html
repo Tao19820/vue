@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <p v-if="hours < 12">Good morning</p>
+    <p v-if="hours >= 12 && hours < 18">Good afternoon</p>
+    <p v-if="hours >=18">Good evening</p>
+    <br>
+    <p>My Wish is: {{ greeting }}</p>
+    <br>
+    <p v-if="path === '/'">You are on the home page</p>
+    <p v-else>You're on {{ path }}</p>
+    <br>
+    <p>All the dogs are {{ dogs }}</p>
+    <p>The second dog is {{ dogs[1] }}</p>
+    <br>
+    <ul>
+        <li v-for="(dog,i) in dogs">{{ i }} is {{ dog }}</li>
+    </ul>
+    <br>
+    <ul>
+        <li v-for="(rent,city) in averageRent">{{city}} rent is {{rent}}</li>
+    </ul>
+</div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            hours: new Date().getHours(),
+            greeting: 'Becoming Better',
+            path: location.pathname,
+            dogs: ['Rex', 'Rover','Henrietta'],
+            averageRent:{
+                london:1650,
+                paris:1730,
+                NYC:3680
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

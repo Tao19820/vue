@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <p>Current status: {{ statusFromId(status) }}</p>
+    <br>
+    <ul>
+        <li v-for="number in filerPositive(numbers)">{{ number }}</li>
+    </ul>
+    <br>
+    <p>The sum of the positive numbers is {{ getPositiveNumbersSum() }}</p>
+    <br>
+    <p>{{status}} {{numbers}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            status: 1,
+            numbers: [-5,0,2,-1,1,3]
+        },
+        methods:{
+            statusFromId(id){
+                const status = ({
+                    0: 'Asleep',
+                    1: 'Eating',
+                    2: 'Learning Vue'
+                })[id];
+
+                return status || 'Unknown status: ' +id;
+            },
+            filerPositive(numbers){
+                return numbers.filter((number) => number >= 0);
+            },
+            getPositiveNumbers(){
+                return this.numbers.filter((number) => number >= 0);
+            },
+            getPositiveNumbersSum(){
+                return this.getPositiveNumbers().reduce((sum, val) => sum + val)
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
