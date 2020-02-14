@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+    <button @click="changeVis">Toggle visibility</button>
+
+    <div v-if="divVisible">This content is sometimes hidden</div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            divVisible: true
+        },
+        methods:{
+            changeVis(e){
+                this.divVisible = !this.divVisible;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
