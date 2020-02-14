@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--suppress JSUnresolvedVariable, JSValidateTypes -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <custom-button></custom-button>
+
+</div>
+
+<script>
+
+    Vue.component('custom-button',{
+        template: '<button>Custom button</button>'
+    });
+
+    new Vue({
+        el: '#app'
+    })
+
+</script>
+
+
+</body>
+</html>

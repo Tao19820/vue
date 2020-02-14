@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <custom-button></custom-button>
+
+</div>
+
+<script>
+
+    const CustomButton = {
+        template: '<button>Custom button</button>'
+    }
+
+    new Vue({
+        el: '#app',
+        components:{
+            CustomButton
+        }
+    })
+</script>
+
+
+</body>
+</html>
