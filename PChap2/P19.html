@@ -13,10 +13,18 @@
 </div>
 
 <script>
-    new Vue({
+
+    var app = new Vue({
         el: '#app',
         data: {
-            name: ''
+            name: 1
+        },
+        created: function () {
+            this.name++;
+            console.log("vue life cycle created " + this.$data.name);
+        },
+        mounted: function () {
+            console.log(this.$el);
         }
     })
 </script>
